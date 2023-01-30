@@ -1,12 +1,4 @@
-A, B = input().split()
-a = []
-b = []
-for i in str(A):
-    a.append(i)
-for j in str(B):
-    b.append(j)
-cnt = 0
-for k in a:
-    for l in b:
-        cnt += int(k)*int(l)
-print(cnt)
+A, B = list(input().split())
+a = list(map(int, A))
+b = list(map(int, B))
+print(sum(a)*sum(b))
