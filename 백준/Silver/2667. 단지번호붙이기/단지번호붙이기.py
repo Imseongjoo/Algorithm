@@ -1,5 +1,6 @@
 from collections import deque
 
+
 def bfs(x, y):
     visit[x][y] = 1
     q = deque([(x, y)])
@@ -13,7 +14,8 @@ def bfs(x, y):
                     visit[nx][ny] = 1
                     q.append((nx, ny))
                     house.append((nx, ny))
-    return len(house), house
+    return house
+
 
 n = int(input())
 
@@ -31,11 +33,11 @@ for x in range(n):
     for y in range(n):
         if visit[x][y] == 0 and board[x][y] == 1:
             cnt += 1
-            house_cnt, house = bfs(x, y)
+            house = bfs(x, y)
             houses.append(house)
 
 print(cnt)
-house_cnts = [len(house) for house in houses] 
+house_cnts = [len(house) for house in houses]
 house_cnts.sort()
 for cnt in house_cnts:
     print(cnt)
